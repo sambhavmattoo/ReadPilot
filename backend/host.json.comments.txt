@@ -1,0 +1,6 @@
+Azure Functions host.json - Field-by-field Explanation
+
+Fields:
+- version: Specifies the runtime version for Azure Functions. '2.0' is required for all modern Python, Node.js, and .NET function apps. This field is mandatory and controls the runtime behavior and compatibility.
+
+This file configures global host-level options for all functions in the app. For most use cases, only the version field is needed unless you are customizing logging, extension bundles, or other advanced host settings. 

@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "ReadPilot",
+  "version": "1.0",
+  "description": "Your copilot for documents on MS Edge",
+  "permissions": ["sidePanel", "activeTab", "storage", "tabs", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": "assets/Logo.png"
+  },
+  "icons": {
+    "16": "assets/Logo.png",
+    "48": "assets/Logo.png",
+    "128": "assets/Logo.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/Logo.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

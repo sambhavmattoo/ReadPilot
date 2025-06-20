@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+  ReadPilot Side Panel HTML
+  This file defines the structure of the Chrome extension's side panel UI.
+  It includes a logo, chat area, and input for user queries.
+  Accessibility improvements: ARIA labels, keyboard navigation, color contrast.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /> <!-- Ensure proper character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Responsive scaling on all devices -->
+  <title>ReadPilot</title> <!-- Browser tab title -->
+  <link rel="stylesheet" href="sidepanel.css" /> <!-- Main stylesheet for panel styling -->
+  <!-- Ubuntu Mono Bold from Google Fonts for monospace look -->
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Main container for the side panel, controls layout and shifting -->
+  <div class="sidepanel-container" role="main" aria-label="ReadPilot chat panel">
+    <!-- Logo and branding area -->
+    <div class="logo-wrapper" aria-label="ReadPilot logo and brand">
+      <div class="logo">
+        <!-- Logo image (inverted to always be black) -->
+        <img src="assets/Logo.png" alt="ReadPilot Logo" />
+      </div>
+      <div class="logo-text">ReadPilot</div> <!-- Brand name -->
+    </div>
+
+    <!-- Chat area: messages and input -->
+    <div class="chat-container" aria-label="Chat area">
+      <!-- Scrollable area for chat messages -->
+      <div class="messages" id="messages" aria-live="polite" aria-label="Chat messages"></div>
+      <!-- User input area: textarea and send button -->
+      <div class="input-area">
+        <label for="user-input" class="visually-hidden">Ask about this document</label>
+        <textarea id="user-input" placeholder="Ask about this document..." aria-label="Ask about this document" rows="2"></textarea>
+        <button id="send-btn" aria-label="Send message" style="background-color:#222; color:#fff;">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main script for chat logic and PDF upload -->
+  <script src="sidepanel.js"></script>
+</body>
+</html>

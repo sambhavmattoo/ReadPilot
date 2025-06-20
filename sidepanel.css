@@ -1,0 +1,223 @@
+/* Accessibility: visually hidden class for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/*
+  ReadPilot Side Panel CSS
+  This file styles the Chrome extension's side panel for a clean, modern, and responsive chat UI.
+  Every block and key property is commented for clarity.
+  Accessibility improvements: color contrast, visually hidden labels.
+*/
+
+/* Reset & full height for consistent layout */
+html, body {
+  height: 100%; /* Full viewport height */
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu Mono', monospace; /* Monospace font for code-like feel */
+  font-weight: 700;
+  background-color: #f4f4f9; /* Light background for contrast */
+  overflow: hidden; /* Prevent scrollbars on body */
+  box-sizing: border-box;
+}
+
+/* Apply box-sizing to all elements for predictable sizing */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Main container for the side panel */
+.sidepanel-container {
+  height: 100vh; /* Fill vertical space */
+  width: 100%;
+  padding: 0 3vw; /* Responsive horizontal padding */
+  display: flex;
+  flex-direction: column;
+  transition: padding-top 0.6s ease, justify-content 0.6s ease;
+  padding-top: 30vh; /* Start with logo centered vertically */
+  justify-content: center;
+  align-items: center;
+}
+
+/* When user sends first message, shift UI up and left */
+.sidepanel-container.shifted {
+  padding-top: 10vw;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Logo and branding area */
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4vw;
+  transition: all 0.6s ease;
+  width: 100%;
+}
+
+/* Logo image container */
+.logo {
+  width: 40vw; /* Responsive logo size */
+  max-width: 100%;
+  transition: all 0.6s ease;
+}
+
+/* Logo image: always black via invert filter */
+.logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: invert(100%); /* Ensures logo is black regardless of source */
+  transition: all 0.6s ease;
+}
+
+/* Logo text styling */
+.logo-text {
+  font-size: 8vw; /* Large, responsive font */
+  color: #333;
+  text-align: center;
+  margin-top: 1vw;
+  user-select: none;
+  transition: all 0.6s ease;
+  width: 100%;
+}
+
+/* Chat container: holds messages and input */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Scrollable area for chat messages */
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vw; /* Space between messages */
+  padding: 0 4vw;
+  box-sizing: border-box;
+}
+
+/* Chat bubble base style */
+.message {
+  padding: 3vw 4vw;
+  border-radius: 3vw;
+  max-width: 85%;
+  font-size: 3.2vw;
+  line-height: 1.5;
+  word-wrap: break-word;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 700;
+}
+
+/* User message bubble (right, light) */
+.message.user {
+  background-color: #e1e1e1;
+  color: #000;
+  align-self: flex-end;
+  text-align: left;
+}
+
+/* ReadPilot message bubble (left, darker for contrast) */
+.message.readpilot {
+  background-color: #222; /* Darker for better contrast */
+  color: #fff;
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* Text input area styling */
+textarea {
+  width: 100%;
+  padding: 3vw;
+  font-size: 3.8vw;
+  height: 22vw;
+  border: 1px solid #ccc;
+  border-radius: 2vw;
+  resize: none;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 700;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Input area stays fixed at bottom of chat */
+.input-area {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2vw 4vw 3vw 4vw;
+  gap: 2vw;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* Send button styling (darker for contrast) */
+button {
+  padding: 3vw;
+  font-size: 3vw;
+  background-color: #222; /* Darker for better contrast */
+  color: #fff;
+  border: none;
+  border-radius: 2vw;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #888;
+}
+
+/* Shifted logo wrapper: moves logo to top left after first message */
+.sidepanel-container.shifted .logo-wrapper {
+  position: fixed;
+  top: 1.5vw;
+  left: 1.5vw;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+  margin-bottom: 0;
+  gap: 1vw;
+  z-index: 10;
+}
+
+/* Shifted logo size (smaller) */
+.sidepanel-container.shifted .logo {
+  width: 12vw;
+  max-width: none;
+}
+
+/* Keep black logo after shift */
+.sidepanel-container.shifted .logo img {
+  width: 100%;
+  height: auto;
+  filter: invert(100%);
+}
+
+/* Bigger text for ReadPilot after shift */
+.sidepanel-container.shifted .logo-text {
+  font-size: 3.5vw;
+  margin: 0;
+  color: #333;
+  line-height: 1;
+}

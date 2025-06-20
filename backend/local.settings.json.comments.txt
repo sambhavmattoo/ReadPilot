@@ -1,0 +1,9 @@
+Azure Functions local.settings.json - Field-by-field Explanation
+
+Fields:
+- IsEncrypted: Indicates whether the settings are encrypted. For local development, this should be false. In production, secrets should be managed with Azure Key Vault or environment variables.
+- Values: An object containing key-value pairs for environment variables used by the function app.
+  - AzureWebJobsStorage: Connection string for Azure Storage. 'UseDevelopmentStorage=true' uses the local Azurite emulator for development.
+  - FUNCTIONS_WORKER_RUNTIME: Specifies the language runtime for the function app. 'python' means the app runs Python Azure Functions.
+
+This file is only used for local development and should not be deployed to production. It allows you to set environment variables and secrets for your local Azure Functions host. 

@@ -1,0 +1,25 @@
+ReadPilot Chrome Extension Manifest (manifest.json) - Field-by-field Explanation
+
+Fields:
+- manifest_version: Required by Chrome, v3 is the current standard.
+- name: Extension name as shown in Chrome.
+- version: Extension version, update for each release.
+- description: Shown in Chrome Web Store and extension settings.
+- permissions: List of permissions requested by the extension.
+  - sidePanel: Use the Chrome side panel API.
+  - activeTab: Interact with the current tab.
+  - storage: Use chrome.storage for saving data.
+  - tabs: Query and manipulate browser tabs.
+  - scripting: Inject scripts into pages.
+- host_permissions: Which URLs the extension can access (here, all URLs).
+- content_scripts: Scripts automatically injected into matching pages.
+  - matches: Which URLs to inject into (here, all URLs).
+  - js: Which script(s) to inject.
+  - all_frames: Inject into iframes as well.
+  - run_at: When to inject (document_idle = after page load).
+- side_panel: Which HTML file to use as the panel UI.
+- background: Service worker for event handling.
+- action: Toolbar icon for the extension.
+- icons: Icons for various Chrome UI sizes.
+- web_accessible_resources: Resources that can be loaded by web pages (e.g., logo image).
+  - matches: Which URLs can access these resources. 
