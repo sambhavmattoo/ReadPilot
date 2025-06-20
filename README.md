@@ -1,4 +1,5 @@
 # ReadPilot: AI Document Chat Extension
+![ReadPilot_Banner](https://github.com/user-attachments/assets/456764c7-bcba-49a4-8b01-5b686a79e0f5)
 
 ReadPilot is a Chrome extension that lets you chat with any PDF or document using advanced AI. It features intelligent document mapping, selective processing, and efficient retrieval, powered by Azure AI services. The system is designed for privacy, scalability, and cost-efficiency, making it ideal for both personal and enterprise use.
 
