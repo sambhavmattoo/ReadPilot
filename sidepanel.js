@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   async function uploadToAzure(blob, filename) {
     // The SAS URL for the Azure Blob Storage container (should be secured in production)
-    const containerSasUrl = 'https://readpilotpdfs.blob.core.windows.net/documents?sv=2024-11-04&ss=b&srt=co&sp=rwdlaciytfx&se=2025-06-30T16:14:48Z&st=2025-06-19T08:14:48Z&spr=https&sig=PDUSBLNfbdki9X68ldjb%2FXWHs7avz9Z%2FTKsPEwwwGK8%3D';
+    const containerSasUrl = '<BLOB SAS TOKEN>';
 
     // Split the SAS URL into base and query parts
     const [baseUrl, query] = containerSasUrl.split('?');
